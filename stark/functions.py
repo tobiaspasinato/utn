@@ -44,6 +44,6 @@ def mas_bajo(lista : list):
     
     mensaje = f"""Personaje:
             Identidad: {personaje_mas_bajo["identidad"]}
-            Peso: {personaje_mas_bajo["altura"]}"""
+            Peso: {personaje_mas_bajo["nombre"]}"""
     
     return mensaje
