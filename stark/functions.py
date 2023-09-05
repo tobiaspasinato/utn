@@ -5,6 +5,7 @@ def normalizar_dato(lista:list):
     for personaje in lista:
         personaje["peso"] = float(personaje["peso"])
         personaje["altura"] = float(personaje["altura"])
+        personaje["fuerza"] = float(personaje["fuerza"])
     
     return lista
 
@@ -32,5 +33,17 @@ def fuerza_max(lista : list):
     mensaje = f"""Personaje:
             Identidad: {personaje_mas_fuerte["identidad"]}
             Peso: {personaje_mas_fuerte["peso"]}"""
+    
+    return mensaje
+
+def mas_bajo(lista : list):
+    personaje_mas_bajo = lista[0]
+    for personaje in lista:
+        if personaje_mas_bajo["altura"] > personaje["altura"]:
+            personaje_mas_bajo = personaje
+    
+    mensaje = f"""Personaje:
+            Identidad: {personaje_mas_bajo["identidad"]}
+            Peso: {personaje_mas_bajo["altura"]}"""
     
     return mensaje
