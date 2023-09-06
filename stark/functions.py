@@ -60,3 +60,16 @@ def peso_promedio_masculino(lista : list):
     resultado = acumulador_peso / acumulador_perso_masculinos
     mensaje = f"Peso promedio de los personajes masculinos: {resultado}"
     return resultado
+
+def promedio_fuerza_fem(lista : list):
+    acumulador_fuerza_fem = 0
+    contador_fem = 0
+
+    for personaje in lista:
+        if personaje["genero"] == "F":
+            acumulador_fuerza_fem = acumulador_fuerza_fem + personaje["fuerza"]
+            contador_fem += 1
+    
+    promedio_fuerza_fem = acumulador_fuerza_fem / contador_fem
+
+    return promedio_fuerza_fem
