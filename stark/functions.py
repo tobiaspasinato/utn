@@ -47,3 +47,19 @@ def mas_bajo(lista : list):
             Peso: {personaje_mas_bajo["nombre"]}"""
     
     return mensaje
+
+def peso_promedio_masculino(lista : list):
+    acumulador_peso = 0
+    acumulador_perso_masculinos = 0
+
+    for personaje in lista:
+        if personaje["genero"] == "M":
+            acumulador_peso = acumulador_peso + personaje["peso"]
+            acumulador_perso_masculinos += 1
+    
+    resultado = acumulador_peso / acumulador_perso_masculinos
+    mensaje = f"Peso promedio de los personajes masculinos: {resultado}"
+    return resultado
+
+def fuerza_promedio_femenina(lista : list):
+    asd
