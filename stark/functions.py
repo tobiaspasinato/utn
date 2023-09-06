@@ -24,29 +24,52 @@ def recorrer_lista(lista : list):
                 Fuerza: {personaje["fuerza"]}
                 Inteligencia: {personaje["inteligencia"]}""")
 
-def fuerza_max(lista : list):
-    personaje_mas_fuerte = lista[0]
+def max_min(lista : list, max_min : str, key : str):
+    personaje_max_min = lista[0]
     for personaje in lista:
-        if personaje_mas_fuerte["fuerza"] < personaje["fuerza"]:
-            personaje_mas_fuerte = personaje
+        if max_min == "min":
+            if personaje_max_min[key] > personaje[key]:
+                personaje_max_min = personaje
+        elif max_min == "max":
+            if personaje_max_min[key] < personaje[key]:
+                personaje_max_min = personaje
     
-    mensaje = f"""Personaje:
-            Identidad: {personaje_mas_fuerte["identidad"]}
-            Peso: {personaje_mas_fuerte["peso"]}"""
-    
+    mensaje =   (f"""personaje:
+                Nombre: {personaje["nombre"]}
+                Identidad: {personaje["identidad"]}
+                Empresa: {personaje["empresa"]}
+                Altura: {personaje["altura"]}
+                Peso: {personaje["peso"]}
+                Genero: {personaje["genero"]}
+                Color de ojos: {personaje["color_ojos"]}
+                Color de Pelo: {personaje["color_pelo"]}
+                Fuerza: {personaje["fuerza"]}
+                Inteligencia: {personaje["inteligencia"]}""")
     return mensaje
 
-def mas_bajo(lista : list):
-    personaje_mas_bajo = lista[0]
-    for personaje in lista:
-        if personaje_mas_bajo["altura"] > personaje["altura"]:
-            personaje_mas_bajo = personaje
+# def fuerza_max(lista : list):
+#     personaje_mas_fuerte = lista[0]
+#     for personaje in lista:
+#         if personaje_mas_fuerte["fuerza"] < personaje["fuerza"]:
+#             personaje_mas_fuerte = personaje
     
-    mensaje = f"""Personaje:
-            Identidad: {personaje_mas_bajo["identidad"]}
-            Peso: {personaje_mas_bajo["nombre"]}"""
+#     mensaje = f"""Personaje:
+#             Identidad: {personaje_mas_fuerte["identidad"]}
+#             Peso: {personaje_mas_fuerte["peso"]}"""
     
-    return mensaje
+#     return mensaje
+
+# def mas_bajo(lista : list):
+#     personaje_mas_bajo = lista[0]
+#     for personaje in lista:
+#         if personaje_mas_bajo["altura"] > personaje["altura"]:
+#             personaje_mas_bajo = personaje
+    
+#     mensaje = f"""Personaje:
+#             Identidad: {personaje_mas_bajo["identidad"]}
+#             Peso: {personaje_mas_bajo["nombre"]}"""
+    
+#     return mensaje
 
 def peso_promedio_masculino(lista : list):
     acumulador_peso = 0
@@ -59,7 +82,7 @@ def peso_promedio_masculino(lista : list):
     
     resultado = acumulador_peso / acumulador_perso_masculinos
     mensaje = f"Peso promedio de los personajes masculinos: {resultado}"
-    return resultado
+    return mensaje
 
 def promedio_fuerza_fem(lista : list):
     acumulador_fuerza_fem = 0

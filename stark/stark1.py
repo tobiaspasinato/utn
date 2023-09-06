@@ -1,6 +1,8 @@
 from data import *
 from functions import *
 
+normalizar_dato(lista_personajes)
+
 mensaje = """A.Imprimir la lista de heroes junto a sos caracteristicas.
             \nB.Heroe mas fuerte.
             \nC.heroe mas bajo.
@@ -16,12 +18,12 @@ while True:
         case "A":
             recorrer_lista(lista_personajes)
         case "B":
-            imprimir(fuerza_max(normalizar_dato(lista_personajes)))
+            imprimir(max_min(lista_personajes, "max", "fuerza"))
         case "C":
-            imprimir(mas_bajo(normalizar_dato(lista_personajes)))
+            imprimir(max_min(lista_personajes, "min", "altura"))
         case "D":
-            imprimir(peso_promedio_masculino(normalizar_dato(lista_personajes)))
+            imprimir(peso_promedio_masculino(lista_personajes))
         case "E":
-            mostrar_heroes_fmasf(normalizar_dato(lista_personajes), promedio_fuerza_fem(normalizar_dato(lista_personajes)))
+            mostrar_heroes_fmasf(lista_personajes, promedio_fuerza_fem(lista_personajes))
         case "F":
             break
