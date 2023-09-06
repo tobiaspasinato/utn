@@ -18,9 +18,9 @@ while True:
         case "A":
             recorrer_lista(lista_personajes)
         case "B":
-            imprimir(max_min(lista_personajes, "max", "fuerza"))
+            imprimir(mostrar((max_min(lista_personajes, "max", "fuerza"))))
         case "C":
-            imprimir(max_min(lista_personajes, "min", "altura"))
+            imprimir(mostrar((max_min(lista_personajes, "min", "altura"))))
         case "D":
             imprimir(peso_promedio_masculino(lista_personajes))
         case "E":

@@ -9,23 +9,27 @@ def normalizar_dato(lista : list):
     
     return lista
 
+def mostrar(dicc : dict):
+    mensaje =   (f"""personaje:
+                Nombre: {dicc["nombre"]}
+                Identidad: {dicc["identidad"]}
+                Empresa: {dicc["empresa"]}
+                Altura: {dicc["altura"]}
+                Peso: {dicc["peso"]}
+                Genero: {dicc["genero"]}
+                Color de ojos: {dicc["color_ojos"]}
+                Color de Pelo: {dicc["color_pelo"]}
+                Fuerza: {dicc["fuerza"]}
+                Inteligencia: {dicc["inteligencia"]}""")
+    return mensaje
 
 def recorrer_lista(lista : list):
-    for personaje in lista:
-        imprimir(f"""personaje:
-                Nombre: {personaje["nombre"]}
-                Identidad: {personaje["identidad"]}
-                Empresa: {personaje["empresa"]}
-                Altura: {personaje["altura"]}
-                Peso: {personaje["peso"]}
-                Genero: {personaje["genero"]}
-                Color de ojos: {personaje["color_ojos"]}
-                Color de Pelo: {personaje["color_pelo"]}
-                Fuerza: {personaje["fuerza"]}
-                Inteligencia: {personaje["inteligencia"]}""")
+    for elemento in lista:
+        imprimir(mostrar(elemento))
 
 def max_min(lista : list, max_min : str, key : str):
     personaje_max_min = lista[0]
+
     for personaje in lista:
         if max_min == "min":
             if personaje_max_min[key] > personaje[key]:
@@ -33,43 +37,8 @@ def max_min(lista : list, max_min : str, key : str):
         elif max_min == "max":
             if personaje_max_min[key] < personaje[key]:
                 personaje_max_min = personaje
-    
-    mensaje =   (f"""personaje:
-                Nombre: {personaje["nombre"]}
-                Identidad: {personaje["identidad"]}
-                Empresa: {personaje["empresa"]}
-                Altura: {personaje["altura"]}
-                Peso: {personaje["peso"]}
-                Genero: {personaje["genero"]}
-                Color de ojos: {personaje["color_ojos"]}
-                Color de Pelo: {personaje["color_pelo"]}
-                Fuerza: {personaje["fuerza"]}
-                Inteligencia: {personaje["inteligencia"]}""")
-    return mensaje
 
-# def fuerza_max(lista : list):
-#     personaje_mas_fuerte = lista[0]
-#     for personaje in lista:
-#         if personaje_mas_fuerte["fuerza"] < personaje["fuerza"]:
-#             personaje_mas_fuerte = personaje
-    
-#     mensaje = f"""Personaje:
-#             Identidad: {personaje_mas_fuerte["identidad"]}
-#             Peso: {personaje_mas_fuerte["peso"]}"""
-    
-#     return mensaje
-
-# def mas_bajo(lista : list):
-#     personaje_mas_bajo = lista[0]
-#     for personaje in lista:
-#         if personaje_mas_bajo["altura"] > personaje["altura"]:
-#             personaje_mas_bajo = personaje
-    
-#     mensaje = f"""Personaje:
-#             Identidad: {personaje_mas_bajo["identidad"]}
-#             Peso: {personaje_mas_bajo["nombre"]}"""
-    
-#     return mensaje
+    return personaje_max_min
 
 def peso_promedio_masculino(lista : list):
     acumulador_peso = 0
@@ -103,3 +72,31 @@ def mostrar_heroes_fmasf(lista:list, promedio : int):
             imprimir(f"""Personaje:
                     Nombre: {personaje["nombre"]}
                     Peso: {personaje["peso"]}""")
+
+
+
+
+
+# def fuerza_max(lista : list):
+#     personaje_mas_fuerte = lista[0]
+#     for personaje in lista:
+#         if personaje_mas_fuerte["fuerza"] < personaje["fuerza"]:
+#             personaje_mas_fuerte = personaje
+    
+#     mensaje = f"""Personaje:
+#             Identidad: {personaje_mas_fuerte["identidad"]}
+#             Peso: {personaje_mas_fuerte["peso"]}"""
+    
+#     return mensaje
+
+# def mas_bajo(lista : list):
+#     personaje_mas_bajo = lista[0]
+#     for personaje in lista:
+#         if personaje_mas_bajo["altura"] > personaje["altura"]:
+#             personaje_mas_bajo = personaje
+    
+#     mensaje = f"""Personaje:
+#             Identidad: {personaje_mas_bajo["identidad"]}
+#             Peso: {personaje_mas_bajo["nombre"]}"""
+    
+#     return mensaje
