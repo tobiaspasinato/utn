@@ -6,6 +6,8 @@ flag_mayor_par = True
 acumulador_positivo = 0
 acumulador_negativo = 0
 contador_negativos = 0
+numero_menor = 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+numero_par_mayor = 0
 
 
 while contador_while < 5:
