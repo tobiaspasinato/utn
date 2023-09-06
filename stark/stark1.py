@@ -22,6 +22,6 @@ while True:
         case "D":
             imprimir(peso_promedio_masculino(normalizar_dato(lista_personajes)))
         case "E":
-            asd
+            mostrar_heroes_fmasf(normalizar_dato(lista_personajes), promedio_fuerza_fem(normalizar_dato(lista_personajes)))
         case "F":
             break

@@ -73,3 +73,10 @@ def promedio_fuerza_fem(lista : list):
     promedio_fuerza_fem = acumulador_fuerza_fem / contador_fem
 
     return promedio_fuerza_fem
+
+def mostrar_heroes_fmasf(lista:list, promedio : int):
+    for personaje in lista:
+        if personaje["fuerza"] > promedio:
+            imprimir(f"""Personaje:
+                    Nombre: {personaje["nombre"]}
+                    Peso: {personaje["peso"]}""")
