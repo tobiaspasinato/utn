@@ -1,7 +1,7 @@
 from data import *
 from functions import *
 
-mensaje = """A. Imprimir la lista de heroes junto a sos caracteristicas.
+mensaje = """A.Imprimir la lista de heroes junto a sos caracteristicas.
             \nB.Heroe mas fuerte.
             \nC.heroe mas bajo.
             \nD.Peso promedio de los personajes masculinos.

@@ -1,7 +1,7 @@
 def imprimir(all : any):
     print(all)
 
-def normalizar_dato(lista:list):
+def normalizar_dato(lista : list):
     for personaje in lista:
         personaje["peso"] = float(personaje["peso"])
         personaje["altura"] = float(personaje["altura"])
@@ -62,4 +62,4 @@ def peso_promedio_masculino(lista : list):
     return resultado
 
 def fuerza_promedio_femenina(lista : list):
-    asd
+    
