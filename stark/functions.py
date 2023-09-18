@@ -2,12 +2,12 @@ def imprimir(all : any):
     print(all)
 
 def normalizar_dato(lista : list):
-    for personaje in lista:
-        personaje["peso"] = float(personaje["peso"])
-        personaje["altura"] = float(personaje["altura"])
-        personaje["fuerza"] = float(personaje["fuerza"])
-    
-    return lista
+    if(len(lista) > 0):
+        for personaje in lista:
+            personaje["peso"] = float(personaje["peso"])
+            personaje["altura"] = float(personaje["altura"])
+            personaje["fuerza"] = float(personaje["fuerza"])
+        return lista
 
 def mostrar(dicc : dict):
     mensaje =   (f"""personaje:
@@ -100,3 +100,6 @@ def mostrar_heroes_fmasf(lista:list, promedio : int):
 #             Peso: {personaje_mas_bajo["nombre"]}"""
     
 #     return mensaje
+# def mostrar_personaje(lista):
+#     for personaje in lista:
+#         obtener_dato(personaje, "nombre")
