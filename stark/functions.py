@@ -29,7 +29,7 @@ def recorrer_lista(lista : list):
 
 def max_min(lista : list, max_min : str, key : str):
     personaje_max_min = lista[0]
-
+    
     for personaje in lista:
         if max_min == "min":
             if personaje_max_min[key] > personaje[key]:
@@ -37,7 +37,7 @@ def max_min(lista : list, max_min : str, key : str):
         elif max_min == "max":
             if personaje_max_min[key] < personaje[key]:
                 personaje_max_min = personaje
-
+                
     return personaje_max_min
 
 def peso_promedio_masculino(lista : list):
@@ -56,14 +56,14 @@ def peso_promedio_masculino(lista : list):
 def promedio_fuerza_fem(lista : list):
     acumulador_fuerza_fem = 0
     contador_fem = 0
-
+    
     for personaje in lista:
         if personaje["genero"] == "F":
             acumulador_fuerza_fem = acumulador_fuerza_fem + personaje["fuerza"]
             contador_fem += 1
     
     promedio_fuerza_fem = acumulador_fuerza_fem / contador_fem
-
+    
     return promedio_fuerza_fem
 
 def mostrar_heroes_fmasf(lista:list, promedio : int):
@@ -73,33 +73,26 @@ def mostrar_heroes_fmasf(lista:list, promedio : int):
                     Nombre: {personaje["nombre"]}
                     Peso: {personaje["peso"]}""")
 
+# stark2------------------------------------------------------------------------------------------------------------------------------------
 
+def mostrar_perso_gen(lista : list, gen : str, key : str):
+    for personaje in lista:
+        if personaje[key] == gen:
+            imprimir(f"Nombre: {personaje['nombre']}")
 
-
-
-# def fuerza_max(lista : list):
-#     personaje_mas_fuerte = lista[0]
-#     for personaje in lista:
-#         if personaje_mas_fuerte["fuerza"] < personaje["fuerza"]:
-#             personaje_mas_fuerte = personaje
+def personaje_alto_debil(lista : list, key : str, gen : str, keyGen : str, max_min : str):
+    if gen == "M":
+        personaje_flag = lista[0]
+    if gen == "F":
+        personaje_flag = lista[3]
+    if gen == "NB":
+        personaje_flag = lista[1]
     
-#     mensaje = f"""Personaje:
-#             Identidad: {personaje_mas_fuerte["identidad"]}
-#             Peso: {personaje_mas_fuerte["peso"]}"""
-    
-#     return mensaje
-
-# def mas_bajo(lista : list):
-#     personaje_mas_bajo = lista[0]
-#     for personaje in lista:
-#         if personaje_mas_bajo["altura"] > personaje["altura"]:
-#             personaje_mas_bajo = personaje
-    
-#     mensaje = f"""Personaje:
-#             Identidad: {personaje_mas_bajo["identidad"]}
-#             Peso: {personaje_mas_bajo["nombre"]}"""
-    
-#     return mensaje
-# def mostrar_personaje(lista):
-#     for personaje in lista:
-#         obtener_dato(personaje, "nombre")
+    for personaje in lista:
+        if personaje[keyGen] == gen:
+            if max_min == "min":
+                if personaje[key] < personaje_flag[key]:
+                    personaje_flag = personaje
+            elif max_min == "max":
+                if personaje[key] > personaje_flag[key]:
+                    personaje_flag = personaje
