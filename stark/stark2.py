@@ -27,3 +27,9 @@ while True:
             mostrar_perso_gen(lista_personajes, "NB" ,"genero")
         case "B":
             imprimir(mostrar(personaje_alto_debil(lista_personajes, "altura", "F", "max")))
+        case "C":
+            imprimir(mostrar(personaje_alto_debil(lista_personajes, "altura", "M", "max")))
+        case "D":
+            imprimir(mostrar(personaje_alto_debil(lista_personajes, "fuerza", "M", "min")))
+        case "E":
+            imprimir(mostrar(personaje_alto_debil(lista_personajes, "fuerza", "NB", "min")))
