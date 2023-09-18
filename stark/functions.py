@@ -80,19 +80,19 @@ def mostrar_perso_gen(lista : list, gen : str, key : str):
         if personaje[key] == gen:
             imprimir(f"Nombre: {personaje['nombre']}")
 
-def personaje_alto_debil(lista : list, key : str, gen : str, keyGen : str, max_min : str):
-    if gen == "M":
-        personaje_flag = lista[0]
-    if gen == "F":
-        personaje_flag = lista[3]
-    if gen == "NB":
-        personaje_flag = lista[1]
+def personaje_alto_debil(lista : list, key : str, gen : str, max_min : str):
+    bandera = 0
     
     for personaje in lista:
-        if personaje[keyGen] == gen:
+        if personaje["genero"] == gen:
+            if bandera == 0:
+                personaje_flag = personaje
+                bandera = 1
             if max_min == "min":
                 if personaje[key] < personaje_flag[key]:
                     personaje_flag = personaje
             elif max_min == "max":
                 if personaje[key] > personaje_flag[key]:
                     personaje_flag = personaje
+    
+    return personaje_flag
