@@ -96,3 +96,14 @@ def personaje_alto_debil(lista : list, key : str, gen : str, max_min : str):
                     personaje_flag = personaje
     
     return personaje_flag
+
+def fuerza_promedio_nb(lista : list):
+    acumulador_perso = 0
+    contador_perso = 0
+    for personaje in lista:
+        if personaje["genero"].upper() == "NB":
+            acumulador_perso = acumulador_perso + personaje["fuerza"]
+            contador_perso += 1
+    resultado = acumulador_perso / contador_perso
+    
+    return resultado

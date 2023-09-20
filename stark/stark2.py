@@ -33,3 +33,5 @@ while True:
             imprimir(mostrar(personaje_alto_debil(lista_personajes, "fuerza", "M", "min")))
         case "E":
             imprimir(mostrar(personaje_alto_debil(lista_personajes, "fuerza", "NB", "min")))
+        case "F":
+            imprimir(fuerza_promedio_nb(lista_personajes))
