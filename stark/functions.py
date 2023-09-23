@@ -107,3 +107,84 @@ def fuerza_promedio_nb(lista : list):
     resultado = acumulador_perso / contador_perso
     
     return resultado
+
+def contador_de_ojos(lista : list):
+    brown_cont = 0
+    blue_cont = 0
+    green_cont = 0
+    hazel_cont = 0
+    yellow_cont = 0
+    silver_cont = 0
+    red_cont = 0
+    for personaje in lista:
+        if personaje["color_ojos"].upper() == "BROWN":
+            brown_cont += 1
+        if personaje["color_ojos"].upper() == "BLUE":
+            blue_cont += 1
+        if personaje["color_ojos"].upper() == "GREEN":
+            green_cont += 1
+        if personaje["color_ojos"].upper() == "YELLOW" or personaje["color_ojos"].upper() == "YELLOW (WITHOUT IRISES)":
+            yellow_cont += 1
+        if personaje["color_ojos"].upper() == "SILVER":
+            silver_cont += 1
+        if personaje["color_ojos"].upper() == "RED":
+            red_cont += 1
+        if personaje["color_ojos"].upper() == "HAZEL":
+            hazel_cont += 1
+    
+    mensaje = f"""Color de Ojos:
+    Brown: {brown_cont}
+    Blue: {blue_cont}
+    Green: {green_cont}
+    Hazel: {hazel_cont}
+    Yellow: {yellow_cont}
+    Silver: {silver_cont}
+    Red: {red_cont}
+    """
+    return mensaje
+
+def contador_de_pelo(lista : list):
+    yellow_cont = 0
+    brown_cont = 0
+    black_cont = 0
+    auburn_cont = 0
+    red_orange = 0
+    white_cont = 0
+    no_Hair_cont = 0
+    blond_cont = 0
+    green_cont = 0
+
+    for personaje in lista:
+        if personaje["color_pelo"].upper() == "YELLOW":
+            yellow_cont += 1
+        if personaje["color_pelo"].upper() == "BROWN" or personaje["color_pelo"] == "BROWN / WHITE":
+            brown_cont += 1
+        if personaje["color_pelo"].upper() == "BLACK":
+            black_cont += 1
+        if personaje["color_pelo"].upper() == "AUBURN":
+            auburn_cont += 1
+        if personaje["color_pelo"].upper() == "WHITE":
+            white_cont += 1
+        if personaje["color_pelo"].upper() == "NO HAIR" or personaje["color_pelo"].upper() == "":
+            no_Hair_cont += 1
+        if personaje["color_pelo"].upper() == "BLOND":
+            blond_cont += 1
+        if personaje["color_pelo"].upper() == "GREEN":
+            green_cont += 1
+        if personaje["color_pelo"].upper() == "RED / ORANGE":
+            red_orange += 1
+    mensaje = f"""Color de Pelo:
+    Yelow: {yellow_cont}
+    Brown: {brown_cont}
+    Black: {black_cont}
+    Auburn: {auburn_cont}
+    White: {white_cont}
+    No Hair: {no_Hair_cont}
+    Blond: {blond_cont}
+    Green: {green_cont}
+    Red / Orange: {red_orange}
+    """
+    return mensaje
+
+def listar_perso(lista : list):
+    asd
