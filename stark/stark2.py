@@ -40,6 +40,6 @@ while True:
         case "H":
             imprimir(contador_de_pelo(lista_personajes))
         case "I":
-            asd
+            imprimir(listar_perso_ojos(lista_personajes))
         case "J":
-            asd
+            imprimir(listar_type_iq(lista_personajes))

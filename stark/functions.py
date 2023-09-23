@@ -186,5 +186,57 @@ def contador_de_pelo(lista : list):
     """
     return mensaje
 
-def listar_perso(lista : list):
-    asd
+def listar_perso_ojos(lista : list):
+    brown_list = []
+    blue_list = []
+    green_list = []
+    hazel_list = []
+    yellow_list = []
+    silver_list = []
+    red_list = []
+    for personaje in lista:
+        if personaje["color_ojos"].upper() == "BROWN":
+            brown_list.append(personaje["nombre"])
+        if personaje["color_ojos"].upper() == "BLUE":
+            blue_list.append(personaje["nombre"])
+        if personaje["color_ojos"].upper() == "GREEN":
+            green_list.append(personaje["nombre"])
+        if personaje["color_ojos"].upper() == "YELLOW" or personaje["color_ojos"].upper() == "YELLOW (WITHOUT IRISES)":
+            yellow_list.append(personaje["nombre"])
+        if personaje["color_ojos"].upper() == "SILVER":
+            silver_list.append(personaje["nombre"])
+        if personaje["color_ojos"].upper() == "RED":
+            red_list.append(personaje["nombre"])
+        if personaje["color_ojos"].upper() == "HAZEL":
+            hazel_list.append(personaje["nombre"])
+    mensaje = f"""Listas:
+    Brown: {brown_list}
+    Blue: {blue_list}
+    Green: {green_list}
+    Hazel: {hazel_list}
+    Yellow: {yellow_list}
+    Silver: {silver_list}
+    Red: {red_list}
+    """
+    return mensaje
+
+def listar_type_iq(lista : list):
+    average_list = []
+    good_list = []
+    high_list = []
+    non_iq = []
+    for personaje in lista:
+        if personaje["inteligencia"].upper() == "HIGH":
+            high_list.append(personaje["nombre"])
+        if personaje["inteligencia"].upper() == "GOOD":
+            good_list.append(personaje["nombre"])
+        if personaje["inteligencia"].upper() == "AVERAGE":
+            average_list.append(personaje["nombre"])
+        if personaje["inteligencia"].upper() == "":
+            non_iq.append(personaje["nombre"])
+    mensaje = f"""Listas:
+    High: {high_list}
+    Good: {good_list}
+    Average: {average_list}
+    No Iq: {non_iq}"""
+    return mensaje
