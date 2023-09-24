@@ -23,5 +23,5 @@ while True:
     match opcion:
         case "K":
             break
-
-
+        case "A":
+            asd

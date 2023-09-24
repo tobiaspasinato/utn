@@ -274,3 +274,47 @@ def stark_normalizar_dato(lista : list):
     else:
         print("Hubo un error al normalizar los datos. Verifique que la lista no este vacía o que los datos ya no se hayan normalizado anteriormente")
         return False
+
+def obtener_dato(dicc : dict, key : str) -> str:
+    if len(dicc) < 1 and key == "nombre":
+        mensaje = f"""Nombre: {dicc[key]}"""
+        return mensaje
+    else:
+        return False
+
+def obtener_nombre_y_dato(dicc : dict, key : str) -> str:
+    if len(dicc) == 0:
+        mensaje = f"Nombre : {dicc['nombre']} | {key} : {dicc[key]}"
+        return mensaje
+    else:
+        return False
+
+def obtener_max(lista : list, key : str) -> dict:
+    personaje_max = lista[0]
+    if len(lista) == 0:
+        for personaje in lista:
+            if personaje_max[key] < personaje[key]:
+                personaje_max = personaje
+        return personaje_max
+    else:
+        return False
+
+def obtener_min(lista : list, key : str) -> dict:
+    personaje_min = lista[0]
+    if len(lista) == 0:
+        for personaje in lista:
+            if personaje_min[key] > personaje[key]:
+                personaje_min = personaje
+        return personaje_min
+    else:
+        return False
+
+def obtener_dato_cantidad(lista : list, min_max : str, key : str) -> str:
+    if min_max.upper() == "MAX":
+        personaje_max = obtener_max(lista, key)
+        return personaje_max
+    elif min_max.upper() == "MIN":
+        personaje_min = obtener_min(lista, key)
+        return personaje_min
+    else:
+        return False
