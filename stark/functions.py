@@ -4,10 +4,15 @@ def imprimir(all : any):
 def normalizar_dato(lista : list):
     if(len(lista) > 0):
         for personaje in lista:
-            personaje["peso"] = float(personaje["peso"])
-            personaje["altura"] = float(personaje["altura"])
-            personaje["fuerza"] = float(personaje["fuerza"])
-        return lista
+            if type(personaje["peso"]) != float:
+                personaje["peso"] = float(personaje["peso"])
+            if type(personaje["altura"]) != float:
+                personaje["altura"] = float(personaje["altura"])
+            if type(personaje["peso"]) != int:
+                personaje["fuerza"] = int(personaje["fuerza"])
+        return True
+    else:
+        return False
 
 def mostrar(dicc : dict):
     mensaje =   (f"""personaje:
@@ -240,3 +245,5 @@ def listar_type_iq(lista : list):
     Average: {average_list}
     No Iq: {non_iq}"""
     return mensaje
+
+#stark3--------------------------------------------------------------------------------------------------------------------------------
