@@ -2,16 +2,23 @@ def imprimir(all : any):
     print(all)
 
 def normalizar_dato(lista : list):
+    contador_modific = 0
     if(len(lista) > 0):
         for personaje in lista:
             if type(personaje["peso"]) != float:
                 personaje["peso"] = float(personaje["peso"])
+                contador_modific += 1
             if type(personaje["altura"]) != float:
                 personaje["altura"] = float(personaje["altura"])
+                contador_modific += 1
             if type(personaje["peso"]) != int:
                 personaje["fuerza"] = int(personaje["fuerza"])
+                contador_modific += 1
+    if contador_modific > 0:
+        print("Datos Normalizados")
         return True
     else:
+        print("Hubo un error al normalizar los datos. Verifique que la lista no este vacía o que los datos ya no se hayan normalizado anteriormente")
         return False
 
 def mostrar(dicc : dict):
@@ -247,3 +254,23 @@ def listar_type_iq(lista : list):
     return mensaje
 
 #stark3--------------------------------------------------------------------------------------------------------------------------------
+
+def stark_normalizar_dato(lista : list):
+    contador_modific = 0
+    if(len(lista) > 0):
+        for personaje in lista:
+            if type(personaje["peso"]) != float:
+                personaje["peso"] = float(personaje["peso"])
+                contador_modific += 1
+            if type(personaje["altura"]) != float:
+                personaje["altura"] = float(personaje["altura"])
+                contador_modific += 1
+            if type(personaje["peso"]) != int:
+                personaje["fuerza"] = int(personaje["fuerza"])
+                contador_modific += 1
+    if contador_modific > 0:
+        print("Datos Normalizados")
+        return True
+    else:
+        print("Hubo un error al normalizar los datos. Verifique que la lista no este vacía o que los datos ya no se hayan normalizado anteriormente")
+        return False
