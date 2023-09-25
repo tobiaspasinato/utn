@@ -258,7 +258,7 @@ def listar_type_iq(lista : list):
 def stark_normalizar_dato(lista : list):
     contador_modific = 0
     bandera_normalizar = True
-    if bandera_normalizar == True
+    if bandera_normalizar == True:
         if len(lista) > 0:
             for personaje in lista:
                 if type(personaje["peso"]) != float:
@@ -346,3 +346,46 @@ def dividir(dividendo : int, divisor : int) -> int:
     else:
         resultado = dividendo / divisor
         return resultado
+
+def calcular_promedio(lista : list, key : str) -> int:
+    acumulador_personaje = sumar_dato_heroe(lista, key)
+    cantidad_elementos = len(lista)
+    promedio = dividir(acumulador_personaje, cantidad_elementos)
+    return promedio
+
+def mostrar_promedio_dato(lista : list, key : str) -> str:
+    if len(lista) == 0:
+        if type(lista[0][key]) == int or type(lista[0][key]) == float:
+            promedio = calcular_promedio(lista, key)
+            mensaje = f"el promedio es {promedio}"
+            return mensaje
+        else:
+            return False
+    else:
+        return False
+
+def imprimir_menu():
+    menu = """A. Recorrer la lista imprimiendo por consola el nombre de cada superhéroe de género NB
+        B. Recorrer la lista y determinar cuál es el superhéroe más alto de género F
+        C. Recorrer la lista y determinar cuál es el superhéroe más alto de género M
+        D. Recorrer la lista y determinar cuál es el superhéroe más débil de género M
+        E. Recorrer la lista y determinar cuál es el superhéroe más débil de género NB
+        F. Recorrer la lista y determinar la fuerza promedio de los superhéroes de género NB
+        G. Determinar cuántos superhéroes tienen cada tipo de color de ojos.
+        H. Determinar cuántos superhéroes tienen cada tipo de color de pelo.
+        I. Listar todos los superhéroes agrupados por color de ojos.
+        J. Listar todos los superhéroes agrupados por tipo de inteligencia.
+        K. Normalizar datos.
+        L. SALIR
+    """
+    imprimir(menu)
+
+def validar_entero(str : str):
+    num = int(str)
+    if num >= 0 or num <= 0:
+        return num
+    else:
+        return False
+
+def stark_menu_principal():
+    
