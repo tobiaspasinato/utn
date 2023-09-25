@@ -24,4 +24,4 @@ while True:
         case "K":
             break
         case "A":
-            asd
+            sumar_dato_heroe(lista_personajes, "altura")

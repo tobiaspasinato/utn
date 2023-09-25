@@ -283,7 +283,7 @@ def obtener_dato(dicc : dict, key : str) -> str:
         return False
 
 def obtener_nombre_y_dato(dicc : dict, key : str) -> str:
-    if len(dicc) == 0:
+    if len(dicc) != 0:
         mensaje = f"Nombre : {dicc['nombre']} | {key} : {dicc[key]}"
         return mensaje
     else:
@@ -291,7 +291,7 @@ def obtener_nombre_y_dato(dicc : dict, key : str) -> str:
 
 def obtener_max(lista : list, key : str) -> dict:
     personaje_max = lista[0]
-    if len(lista) == 0:
+    if len(lista) != 0:
         for personaje in lista:
             if personaje_max[key] < personaje[key]:
                 personaje_max = personaje
@@ -301,7 +301,7 @@ def obtener_max(lista : list, key : str) -> dict:
 
 def obtener_min(lista : list, key : str) -> dict:
     personaje_min = lista[0]
-    if len(lista) == 0:
+    if len(lista) != 0:
         for personaje in lista:
             if personaje_min[key] > personaje[key]:
                 personaje_min = personaje
@@ -309,7 +309,7 @@ def obtener_min(lista : list, key : str) -> dict:
     else:
         return False
 
-def obtener_dato_cantidad(lista : list, min_max : str, key : str) -> str:
+def obtener_dato_cantidad(lista : list, min_max : str, key : str) -> dict:
     if min_max.upper() == "MAX":
         personaje_max = obtener_max(lista, key)
         return personaje_max
@@ -318,3 +318,22 @@ def obtener_dato_cantidad(lista : list, min_max : str, key : str) -> str:
         return personaje_min
     else:
         return False
+
+def stark_imprimir_heroes(lista : list) -> str:
+    if len(lista) != 0:
+        for personaje in lista:
+            print(obtener_dato(personaje, "nombre"))
+    else:
+        return False
+
+def sumar_dato_heroe(lista : list, key : str) -> int or float:
+    acumulador_personaje = 0
+    if len(lista) != 0:
+        for personaje in lista:
+            if type(personaje) == dict and len(personaje) != 0:
+                acumulador_personaje = acumulador_personaje + personaje[key]
+        return acumulador_personaje
+    else:
+        return False
+
+def
