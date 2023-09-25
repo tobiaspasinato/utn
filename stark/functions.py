@@ -339,3 +339,10 @@ def sumar_dato_heroe(lista : list, key : str) -> int or float:
         return acumulador_personaje
     else:
         return False
+
+def dividir(dividendo : int, divisor : int) -> int:
+    if divisor == 0:
+        return False
+    else:
+        resultado = dividendo / divisor
+        return resultado
