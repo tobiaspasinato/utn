@@ -335,5 +335,3 @@ def sumar_dato_heroe(lista : list, key : str) -> int or float:
         return acumulador_personaje
     else:
         return False
-
-def
