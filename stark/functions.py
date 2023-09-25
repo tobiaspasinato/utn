@@ -257,7 +257,8 @@ def listar_type_iq(lista : list):
 
 def stark_normalizar_dato(lista : list):
     contador_modific = 0
-    if(len(lista) > 0):
+    bandera_normalizar = True
+    if len(lista) > 0 and bandera_normalizar == True:
         for personaje in lista:
             if type(personaje["peso"]) != float:
                 personaje["peso"] = float(personaje["peso"])
@@ -268,7 +269,9 @@ def stark_normalizar_dato(lista : list):
             if type(personaje["peso"]) != int:
                 personaje["fuerza"] = int(personaje["fuerza"])
                 contador_modific += 1
-    if contador_modific > 0:
+    
+    if contador_modific > 0 and bandera_normalizar == True:
+        bandera_normalizar = False
         print("Datos Normalizados")
         return True
     else:
