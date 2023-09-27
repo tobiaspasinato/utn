@@ -257,20 +257,22 @@ def listar_type_iq(lista : list):
 
 def stark_normalizar_dato(lista : list):
     contador_modific = 0
-    bandera_normalizar = True
-    if bandera_normalizar == True:
+    bandera_normalizar = False
+    if bandera_normalizar == False:
         if len(lista) > 0:
             for personaje in lista:
                 if type(personaje["peso"]) != float:
+                    bandera_normalizar = True
                     personaje["peso"] = float(personaje["peso"])
                     contador_modific += 1
                 if type(personaje["altura"]) != float:
+                    bandera_normalizar = True
                     personaje["altura"] = float(personaje["altura"])
                     contador_modific += 1
                 if type(personaje["peso"]) != int:
+                    bandera_normalizar = True
                     personaje["fuerza"] = int(personaje["fuerza"])
                     contador_modific += 1
-            bandera_normalizar = False
     
     if contador_modific > 0:
         print("Datos Normalizados")
@@ -364,20 +366,35 @@ def mostrar_promedio_dato(lista : list, key : str) -> str:
     else:
         return False
 
+def lista_gen(lista : list, gen : str) -> list:
+    lista_fem = []
+    for personaje in lista:
+        if personaje["genero"].upper() == gen.upper():
+            lista_fem.append(personaje)
+    return lista_fem
+
+def agrupar_por_(lista : list, key : str):
+    diccionario_perso = {}
+    for personaje in lista:
+        caracteristica = personaje.get(key, "Otro")
+        nombre = personaje.get("nombre")
+        diccionario_perso.setdefault(caracteristica, []).append(nombre)
+    return diccionario_perso
+
 def imprimir_menu():
-    menu = """A. Recorrer la lista imprimiendo por consola el nombre de cada superhéroe de género NB
-        B. Recorrer la lista y determinar cuál es el superhéroe más alto de género F
-        C. Recorrer la lista y determinar cuál es el superhéroe más alto de género M
-        D. Recorrer la lista y determinar cuál es el superhéroe más débil de género M
-        E. Recorrer la lista y determinar cuál es el superhéroe más débil de género NB
-        F. Recorrer la lista y determinar la fuerza promedio de los superhéroes de género NB
-        G. Determinar cuántos superhéroes tienen cada tipo de color de ojos.
-        H. Determinar cuántos superhéroes tienen cada tipo de color de pelo.
-        I. Listar todos los superhéroes agrupados por color de ojos.
-        J. Listar todos los superhéroes agrupados por tipo de inteligencia.
-        K. Normalizar datos.
-        L. SALIR
-    """
+    menu = """1. Recorrer la lista imprimiendo por consola el nombre de cada superhéroe de género NB
+            2. Recorrer la lista y determinar cuál es el superhéroe más alto de género F
+            3. Recorrer la lista y determinar cuál es el superhéroe más alto de género M
+            4. Recorrer la lista y determinar cuál es el superhéroe más débil de género M
+            5. Recorrer la lista y determinar cuál es el superhéroe más débil de género NB
+            6. Recorrer la lista y determinar la fuerza promedio de los superhéroes de género NB
+            7. Determinar cuántos superhéroes tienen cada tipo de color de ojos.
+            8. Determinar cuántos superhéroes tienen cada tipo de color de pelo.
+            9. Listar todos los superhéroes agrupados por color de ojos.
+            10. Listar todos los superhéroes agrupados por tipo de inteligencia.
+            11. Normalizar datos.
+            0. SALIR
+            """
     imprimir(menu)
 
 def validar_entero(str : str):
@@ -387,5 +404,39 @@ def validar_entero(str : str):
     else:
         return False
 
-def stark_menu_principal():
-    asd
+def stark_menu_principal() -> int:
+    imprimir_menu()
+    num = input("Cual va a ser su opcion?: ")
+    opcion = validar_entero(num)
+    return opcion
+
+def stark_marvel_app(lista : list):
+    datos_normalizados = False
+    while True:
+        opcion = stark_menu_principal()
+        match opcion:
+            case 0:
+                break
+            case 11:
+                if datos_normalizados == False:
+                    datos_normalizados = stark_normalizar_dato(lista)
+            case 1:
+                mostrar_perso_gen(lista, "NB", "genero")
+            case 2:
+                imprimir(obtener_dato(obtener_max(lista_gen(lista, "F"), "altura"), "nombre"))
+            case 3:
+                imprimir(obtener_dato(obtener_max(lista_gen(lista, "M"), "altura"), "nombre"))
+            case 4:
+                imprimir(obtener_dato(obtener_min(lista_gen(lista, "M"), "fuerza"), "nombre"))
+            case 5:
+                imprimir(obtener_dato(obtener_min(lista_gen(lista, "NB"), "fuerza"), "nombre"))
+            case 6:
+                imprimir(calcular_promedio(lista_gen(lista, "NB"), "fuerza"))
+            case 7:
+                imprimir(agrupar_por_(lista, "color_ojos"))
+            case 8:
+                imprimir(agrupar_por_(lista, "color_pelo"))
+            case 9:
+                imprimir(agrupar_por_(lista, "color_ojos"))
+            case 10:
+                imprimir(agrupar_por_(lista, "inteligencia"))
