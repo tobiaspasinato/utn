@@ -280,7 +280,7 @@ def stark_normalizar_dato(lista : list):
         return False
 
 def obtener_dato(dicc : dict, key : str) -> str:
-    if len(dicc) < 1 and key == "nombre":
+    if len(dicc) > 0 and key == "nombre":
         mensaje = f"""Nombre: {dicc[key]}"""
         return mensaje
     else:
