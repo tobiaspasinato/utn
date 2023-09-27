@@ -388,4 +388,4 @@ def validar_entero(str : str):
         return False
 
 def stark_menu_principal():
-    
+    asd
