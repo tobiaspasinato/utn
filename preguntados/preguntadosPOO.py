@@ -137,3 +137,7 @@ while running:
     screen.blit(text_score,(260,125))
     pygame.display.flip()# Muestra los cambios en la pantalla
 pygame.quit() # Fin
+
+
+
+
