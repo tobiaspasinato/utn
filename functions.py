@@ -19,3 +19,13 @@ def leer_csv(path) -> list:
             lista.append(elemento)
     
     return lista
+
+def crear_csv(nombre_archivo : str, lista : list):
+    if len(lista) > 0:
+        lista_claves = list(lista[0].keys())
+        cabecera = ",".join(lista_claves)
+        print(cabecera)
+        with open(nombre_archivo, "w") as archivo:
+            for elemento in lista:
+                lista_valores = list(elemento.values())
+                datos = ",".join(lista_valores)
