@@ -440,3 +440,6 @@ def stark_marvel_app(lista : list):
                 imprimir(agrupar_por_(lista, "color_ojos"))
             case 10:
                 imprimir(agrupar_por_(lista, "inteligencia"))
+
+#stark4 --------------------------------------------------------------------------------------------------------------------------------------------------------
+
