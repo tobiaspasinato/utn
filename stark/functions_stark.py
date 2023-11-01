@@ -1,3 +1,5 @@
+import re
+
 def imprimir(all : any):
     print(all)
 
@@ -440,3 +442,8 @@ def stark_marvel_app(lista : list):
                 imprimir(agrupar_por_(lista, "color_ojos"))
             case 10:
                 imprimir(agrupar_por_(lista, "inteligencia"))
+
+#stark4 --------------------------------------------------------------------------------------------------------------------------------------------------------
+
+def extraer_iniciales(nombre_personaje : str) -> str:
+    lista_nombre = re.split(" ", nombre_personaje)
