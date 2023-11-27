@@ -77,47 +77,51 @@ def leer_json(nombre_archivo : str, nombre_lista : str):
         return False
 
 def ordenar(lista:list, key:str):
-    # va a obtener una lista y key como parametro
     opcion = input("Ordenar de manera ascendente (asc) o descendente (desc)? ").lower()
-    # le pedimos al usuario de la consola que escriba la forma de ordenar la lisata
-
     while not re.search("asc|desc", opcion) or opcion == "":
         opcion = input("Ordenar de manera ascendente (asc) o descendente (desc)? ").lower()
-        # verifica que el usuario ingrese una de las dos opciones dadas por el programa
-
     for i in range(len(lista)-1):
-        # itera en la menos en el ultimo dato de esta
         for j in range(i+1,len(lista)):
-            # itera en la lista una posicion adelante del primer for
             if opcion == "asc":
-                # si la opcion elegida es la que busca el if entra en el
                 if(lista[i][key] > lista[j][key]):
-                    # compara si el elemoento de la lista i es mayor que el de la lista j
                     aux = lista[i]
-                    # si ingreso al if porcede a guardar el elemento i en la variable auxiliar
                     lista[i] = lista[j]
-                    # sobre escribe los datos de "lista[i]" por los de "lista[j]"
                     lista[j] = aux
-                    # y usamos el aux para mover el valor que se sobrescribio anteriormente
             else:
-                # este else lo que hace es mandar al usuario a la opcion que eligio (al ser solo 2 posibles rutas)
                 if(lista[i][key] < lista[j][key]):
-                    # compara si el elemoento de la lista i es mayor que el de la lista j
                     aux = lista[i]
-                    # si ingreso al if porcede a guardar el elemento i en la variable auxiliar
                     lista[i] = lista[j]
-                    # sobre escribe los datos de "lista[i]" por los de "lista[j]"
                     lista[j] = aux
-                    # y usamos el aux para mover el valor que se sobrescribio anteriormente
     for personaje in lista:
-        # con la lista ya ordenada como el usuario quiere iteramon en cada elemento de la lista
         personaje_ordenado = personaje[key]
-        # guarda el dato del personaje que queremos mostrar
         personaje_ordenado_name = personaje["name"]
-        # para no confundir al usuario guardamos el nombre del personaje del dato anterior
         print(f"Personaje: {personaje_ordenado_name} | {personaje_ordenado}")
-        # imprimimos los datos anteriores cada vez que el for itere en algun elemoento
     return lista
-    # retornamos la lista ordenada para el uso de la exportacion al csv
+
+def ordenar_asc(lista : list, key : str):
+    for i in range(len(lista)-1):
+        for j in range(i+1,len(lista)):
+            if(lista[i] > lista[j]):
+                aux = lista[i]
+                lista[i] = lista[j]
+                lista[j] = aux
+    for personaje in lista:
+        personaje_ordenado = personaje[key]
+        personaje_ordenado_name = personaje["name"]
+        print(f"Personaje: {personaje_ordenado_name} | {personaje_ordenado}")
+    return lista
+
+def ordenar_desc(lista : list, key : str):
+    for i in range(len(lista)-1):
+        for j in range(i+1,len(lista)):
+            if(lista[i] < lista[j]):
+                aux = lista[i]
+                lista[i] = lista[j]
+                lista[j] = aux
+    for personaje in lista:
+        personaje_ordenado = personaje[key]
+        personaje_ordenado_name = personaje["name"]
+        print(f"Personaje: {personaje_ordenado_name} | {personaje_ordenado}")
+    return lista
 
 
