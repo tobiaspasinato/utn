@@ -186,7 +186,7 @@ def generar_encabezado(titulo : str) -> None:
 
 def imprimir_ficha_heroe(dict_personaje : dict, id) -> None:
     generar_encabezado("principal")
-    print(f"NOMBRE DEL HEROE:                {stark_imprimir_nombre_con_iniciales(dict_personaje['identidad'])}")
+    print(f"NOMBRE DEL HEROE:                {stark_imprimir_nombre_con_iniciales(dict_personaje)}")
     print(f"IDENTIDAD SECRETA:               {obtener_dato_formato(dict_personaje['identidad'])}")
     print(f"CONSULTORA:                      {obtener_dato_formato(dict_personaje['empresa'])}")
     print(f"CÓDIGO DE HÉROE:                 {generar_codigo_heroe(dict_personaje, id)}")
@@ -199,4 +199,42 @@ def imprimir_ficha_heroe(dict_personaje : dict, id) -> None:
     print(f"COLOR DE PELO:                   {dict_personaje['color_pelo']} N")
 
 def stark_navegar_fichas(lista_personajes : list):
-    
+    i = 0
+    while True:
+        imprimir_ficha_heroe(lista_personajes[i], i + 1)
+        print("[ 1 ] Ir a la izquierda [ 2 ] Ir a la derecha [ 3 ] Salir")
+        opcion = int(input("opcion: "))
+        if i > 0:
+            if opcion == 1:
+                i -= 1
+        if i < len(lista_personajes):
+            if opcion == 2:
+                i += 1
+        if opcion == 3:
+            break
+        if opcion > 3:
+            opcion = int(input("opcion: "))
+
+def stark_marvel_app(lista : list):
+    while True:
+        print("""1 - Imprimir la lista de nombres junto con sus iniciales
+        2 - Imprimir la lista de nombres y el código del mismo
+        3 - Normalizar datos
+        4 - Imprimir índice de nombres
+        5 - Navegar fichas
+        6 - Salir
+        """)
+        opcion = int(input("opcion: "))
+        match opcion:
+            case 1:
+                stark_imprimir_nombres_con_iniciales(lista)
+            case 2:
+                stark_generar_codigos_heroes(lista)
+            case 3:
+                stark_normalizar_datos(lista)
+            case 4:
+                stark_imprimir_indice_nombre(lista)
+            case 5:
+                stark_navegar_fichas(lista)
+            case 6:
+                break
