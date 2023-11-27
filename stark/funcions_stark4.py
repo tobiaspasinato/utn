@@ -184,7 +184,7 @@ def generar_encabezado(titulo : str) -> None:
     print(titulo.upper())
     generar_separador("*", 150)
 
-def imprimir_ficha_heroe(dict_personaje : dict, id) -> None:
+def imprimir_ficha_heroe(dict_personaje : dict, id : int) -> None:
     generar_encabezado("principal")
     print(f"NOMBRE DEL HEROE:                {stark_imprimir_nombre_con_iniciales(dict_personaje)}")
     print(f"IDENTIDAD SECRETA:               {obtener_dato_formato(dict_personaje['identidad'])}")
@@ -207,7 +207,7 @@ def stark_navegar_fichas(lista_personajes : list):
         if i > 0:
             if opcion == 1:
                 i -= 1
-        if i < len(lista_personajes):
+        if i < len(lista_personajes)-1:
             if opcion == 2:
                 i += 1
         if opcion == 3:
