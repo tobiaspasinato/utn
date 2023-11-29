@@ -160,6 +160,26 @@ def stark_normalizar_datos(lista_personajes : list) -> None:
     else:
         print("Error: Lista de héroes vacía")
 
+def normalizar_dato(lista : list):
+    contador_modific = 0
+    if(len(lista) > 0):
+        for personaje in lista:
+            if type(personaje["peso"]) != float:
+                personaje["peso"] = float(personaje["peso"])
+                contador_modific += 1
+            if type(personaje["altura"]) != float:
+                personaje["altura"] = float(personaje["altura"])
+                contador_modific += 1
+            if type(personaje["peso"]) != int:
+                personaje["fuerza"] = int(personaje["fuerza"])
+                contador_modific += 1
+    if contador_modific > 0:
+        print("Datos Normalizados")
+        return True
+    else:
+        print("Hubo un error al normalizar los datos. Verifique que la lista no este vacía o que los datos ya no se hayan normalizado anteriormente")
+        return False
+
 def stark_imprimir_indice_nombre(lista_de_personajes : list) -> None:
     lista = []
     for personaje in lista_de_personajes:
@@ -331,7 +351,7 @@ def ordenar(lista:list, key:str):
                     lista[j] = aux
     for personaje in lista:
         personaje_ordenado = personaje[key]
-        personaje_ordenado_name = personaje["name"]
+        personaje_ordenado_name = personaje["nombre"]
         print(f"Personaje: {personaje_ordenado_name} | {personaje_ordenado}")
     return lista
 
@@ -344,7 +364,7 @@ def ordenar_asc(lista : list, key : str):
                 lista[j] = aux
     for personaje in lista:
         personaje_ordenado = personaje[key]
-        personaje_ordenado_name = personaje["name"]
+        personaje_ordenado_name = personaje["nombre"]
         print(f"Personaje: {personaje_ordenado_name} | {personaje_ordenado}")
     return lista
 
@@ -357,7 +377,7 @@ def ordenar_desc(lista : list, key : str):
                 lista[j] = aux
     for personaje in lista:
         personaje_ordenado = personaje[key]
-        personaje_ordenado_name = personaje["name"]
+        personaje_ordenado_name = personaje["nombre"]
         print(f"Personaje: {personaje_ordenado_name} | {personaje_ordenado}")
     return lista
 
