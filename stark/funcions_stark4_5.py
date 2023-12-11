@@ -160,26 +160,6 @@ def stark_normalizar_datos(lista_personajes : list) -> None:
     else:
         print("Error: Lista de héroes vacía")
 
-def normalizar_dato(lista : list):
-    contador_modific = 0
-    if(len(lista) > 0):
-        for personaje in lista:
-            if type(personaje["peso"]) != float:
-                personaje["peso"] = float(personaje["peso"])
-                contador_modific += 1
-            if type(personaje["altura"]) != float:
-                personaje["altura"] = float(personaje["altura"])
-                contador_modific += 1
-            if type(personaje["peso"]) != int:
-                personaje["fuerza"] = int(personaje["fuerza"])
-                contador_modific += 1
-    if contador_modific > 0:
-        print("Datos Normalizados")
-        return True
-    else:
-        print("Hubo un error al normalizar los datos. Verifique que la lista no este vacía o que los datos ya no se hayan normalizado anteriormente")
-        return False
-
 def stark_imprimir_indice_nombre(lista_de_personajes : list) -> None:
     lista = []
     for personaje in lista_de_personajes:
@@ -261,6 +241,68 @@ def stark_marvel_app(lista : list):
                 break
 
 #stark5 --------------------------------------------------------------------------------------------------------------------------
+def normalizar_dato(lista : list):
+    contador_modific = 0
+    if(len(lista) > 0):
+        for personaje in lista:
+            if type(personaje["peso"]) != float:
+                personaje["peso"] = float(personaje["peso"])
+                contador_modific += 1
+            if type(personaje["altura"]) != float:
+                personaje["altura"] = float(personaje["altura"])
+                contador_modific += 1
+            if type(personaje["peso"]) != int:
+                personaje["fuerza"] = int(personaje["fuerza"])
+                contador_modific += 1
+    if contador_modific > 0:
+        print("Datos Normalizados")
+        return True
+    else:
+        print("Hubo un error al normalizar los datos. Verifique que la lista no este vacía o que los datos ya no se hayan normalizado anteriormente")
+        return False
+    
+def normalizar_dato2(dicc : dict):
+    contador_modific = 0
+    if(len(dicc) > 0):
+        for personaje in dicc['asd2']:
+            if type(personaje["peso"]) != float:
+                personaje["peso"] = float(personaje["peso"])
+                contador_modific += 1
+            if type(personaje["altura"]) != float:
+                personaje["altura"] = float(personaje["altura"])
+                contador_modific += 1
+            if type(personaje["peso"]) != int:
+                personaje["fuerza"] = int(personaje["fuerza"])
+                contador_modific += 1
+        lista = dicc['asd2']
+    if contador_modific > 0:
+        print("Datos Normalizados")
+        return lista
+    else:
+        print("Hubo un error al normalizar los datos. Verifique que la lista no este vacía o que los datos ya no se hayan normalizado anteriormente")
+        return False
+
+def normalizar_dato3(dicc : dict):
+    contador_modific = 0
+    if(len(dicc) > 0):
+        for personaje in dicc:
+            if type(personaje["peso"]) != float:
+                personaje["peso"] = float(personaje["peso"])
+                contador_modific += 1
+            if type(personaje["altura"]) != float:
+                personaje["altura"] = float(personaje["altura"])
+                contador_modific += 1
+            if type(personaje["peso"]) != int:
+                personaje["fuerza"] = int(personaje["fuerza"])
+                contador_modific += 1
+        lista = dicc
+    if contador_modific > 0:
+        print("Datos Normalizados")
+        return lista
+    else:
+        print("Hubo un error al normalizar los datos. Verifique que la lista no este vacía o que los datos ya no se hayan normalizado anteriormente")
+        return False
+
 def leer_archivo(nombre_archivo):
     try:
         with open(nombre_archivo, 'r', encoding='utf-8') as archivo:
@@ -358,7 +400,7 @@ def ordenar(lista:list, key:str):
 def ordenar_asc(lista : list, key : str):
     for i in range(len(lista)-1):
         for j in range(i+1,len(lista)):
-            if(lista[i] > lista[j]):
+            if(lista[i][key] > lista[j][key]):
                 aux = lista[i]
                 lista[i] = lista[j]
                 lista[j] = aux
@@ -371,7 +413,7 @@ def ordenar_asc(lista : list, key : str):
 def ordenar_desc(lista : list, key : str):
     for i in range(len(lista)-1):
         for j in range(i+1,len(lista)):
-            if(lista[i] < lista[j]):
+            if(lista[i][key] < lista[j][key]):
                 aux = lista[i]
                 lista[i] = lista[j]
                 lista[j] = aux
@@ -398,11 +440,11 @@ def stark5_marvel_app(lista : list):
             case 2:
                 generar_csv("game.csv", lista)
             case 3:
-                ordenar_asc(leer_csv("game.csv"), "altura")
+                ordenar_asc(normalizar_dato3(leer_csv("stark\game.csv")), "altura")
             case 4:
                 generar_json("asd1.json", lista, "asd2")
             case 5:
-                ordenar_desc(leer_json("asd1.json", "asd2"), "peso")
+                ordenar_desc(normalizar_dato2(leer_json("stark\\asd1.json", "asd2")), "peso")
             case 6:
                 ordenar(lista, "peso")
             case 7:
