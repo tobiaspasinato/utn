@@ -440,7 +440,7 @@ def stark5_marvel_app(lista : list):
             case 2:
                 generar_csv("game.csv", lista)
             case 3:
-                ordenar_asc(normalizar_dato3(leer_csv("stark\game.csv")), "altura")
+                ordenar_asc(normalizar_dato3(leer_csv("stark\manu.csv")), "altura")
             case 4:
                 generar_json("asd1.json", lista, "asd2")
             case 5:
