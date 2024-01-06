@@ -1,6 +1,6 @@
 import re
 
-def imprimir(all : any):
+def imprimir():
     print(all)
 
 def normalizar_dato(lista : list):
