@@ -1,5 +1,5 @@
 from data import *
-from functions import *
+from functions_stark import *
 
 normalizar_dato(lista_personajes)
 
