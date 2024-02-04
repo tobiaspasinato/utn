@@ -30,7 +30,7 @@ pygame.init() #Se inicializa pygame
 
 screen = pygame.display.set_mode([500, 500])
 pygame.display.set_caption("Preguntados Gojo")
-imagen_gojo = pygame.image.load("preguntados\gojo2.jpg")
+imagen_gojo = pygame.image.load("utn/preguntados/gojo2.jpg")
 imagen_gojo = pygame.transform.scale(imagen_gojo, (150, 150))
 font = pygame.font.SysFont("Arial Narrow", 50)
 font2 = pygame.font.SysFont("Arial Narrow", 24)
