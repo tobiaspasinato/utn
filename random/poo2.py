@@ -3,7 +3,6 @@ class Libro:
         self.titulo = titulo
         self.autor = autor
         self.año_publicacion = año_publicacion
-        pass
     
     def mostrar(self) -> str:
         mensaje = f"Libro : {self.titulo}\nAutor: {self.autor}\nAño de publicación: {self.año_publicacion}"
