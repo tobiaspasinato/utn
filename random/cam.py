@@ -1,26 +1,22 @@
-"""contador = 0
-acumulador = 0
-cantidad_de_numeros = 5
+"""
+def muestra_vocales(palabra : str) -> str:
+    palabra = palabra.lower()
+    mensaje = ""
+    for letra in palabra:
+        if letra == "a" or letra == "e" or letra == "i" or letra == "o" or letra == "u":
+            mensaje = mensaje + f"{letra} "
+    return mensaje
 
-while contador < cantidad_de_numeros:
-    num = int(input("Ingrese un numero: "))
-    acumulador = acumulador + num
-    contador += 1
+word = input("Ingrese una palabra para mostrar sus vocales: ")
+print(muestra_vocales(word))
+"""
+#Hacer una función que reciba un string y que lo invierta.
+def invertir_palabra(palabra):
+    nueva_palabra = ""
+    longitud = len(palabra)
+    for numero in range(1,longitud+1):
+        nueva_palabra = nueva_palabra + palabra[-numero]
+    return nueva_palabra
 
-resultado = acumulador / cantidad_de_numeros
-
-print(f"El promedio es {resultado}")"""
-
-lista = ["hola", 3, "asd", "jajaja", 3.14]
-lista2 = []
-contador = 0
-
-for elemento in lista:
-    if type(elemento) == int:
-        lista2.append(elemento)
-    else:
-        contador += 1
-
-for e in lista2:
-    print(e)
-print(contador)
+word = "padre"
+print(invertir_palabra(word))
